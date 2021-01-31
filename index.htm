@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/estilos.css">
+	<script src="https://kit.fontawesome.com/0030d3af8f.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<title>Dibujar</title>
+	<script>
+	$(document).ready(function() {	 
+	    // setTimeout(function() {
+	    //     $("#opciones").fadeIn(1500);
+	    // },6000);
+	    $(".fa-times").click(function(){
+	        $("#opciones").fadeOut(500);
+	        $("#mostrar-opciones").fadeIn(700);
+	    });
+    	$("#mostrar-opciones").click(function(){
+        	$("#mostrar-opciones").fadeOut(500);
+	        $("#opciones").fadeIn(700);
+    	});
+    	$(".pencils-color div").click(function(){
+    		let valor = $("#color-chose").attr('class');
+    		$("#color-chose").removeClass(valor);
+    	    $("#color-chose").addClass($(this).attr('class'));
+    	});
+
+    	$(".pencils-width div").click(function(){
+    		let ancho = $("#width-chose").attr('class');
+    		$("#width-chose").removeClass(ancho);
+    	    $("#width-chose").addClass($(this).attr('class'));
+    	});
+	});
+	</script>
+</head>
+<body>
+	<div id="juego">
+		<div id="mostrar-opciones"></div>
+		<div id="opciones">
+			<span id="color-chose"></span>
+			<div class="pencils-color">
+				<div class="red"></div>
+				<div class="orange"></div>
+				<div class="yellow"></div>
+				<div class="green"></div>
+				<div class="lightblue"></div>
+				<div class="blue"></div>
+				<div class="pink"></div>
+				<div class="black"></div>
+			</div>
+			
+			<span id="width-chose"></span>
+			<div class="pencils-width">
+				<div class="1">
+					<div id="small"></div>
+				</div>
+				<div class="5">
+					<div id="medium"></div>
+				</div>
+				<div class="10">
+					<div id="large"></div>
+				</div>
+			</div>
+			
+			<div>
+				<i class="fas fa-times"></i>
+			</div>
+			
+		</div>
+
+		<div onclick="BorrarLineas();" id="Borrar">
+			<i class="fas fa-eraser"></i>
+		</div>
+
+		<canvas id="MyCanvas"></canvas>
+	
+	</div>
+
+	<script src="js/index.js"></script>
+
+</body>
+</html>
